@@ -2,8 +2,8 @@
 import Swal from "sweetalert2";
 
 class AleartMessage {
-  static deleteAleart(deleteRequiest, id) {
-    return Swal.fire({
+  static deleteAleart() {
+    Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
       icon: "warning",
@@ -13,33 +13,7 @@ class AleartMessage {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        return deleteRequiest(id).then((result) => {
-          if (result) {
-            Swal.fire("Deleted!", "Your file has been deleted.", "success");
-            return true;
-          }
-        });
-      }
-    });
-  }
-
-  static updateAleart(updateRequiest, id, status) {
-    return Swal.fire({
-      title: "Change Status",
-      input: "select",
-      inputOptions: {
-        Deactive: "Deactive",
-        Active: "Active",
-      },
-      inputValue: status,
-    }).then((result) => {
-      if (result.isConfirmed) {
-        return updateRequiest(id, result.value).then((result) => {
-          if (result) {
-            Swal.fire("Update!", "Comment Update.", "success");
-            return true;
-          }
-        });
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
       }
     });
   }

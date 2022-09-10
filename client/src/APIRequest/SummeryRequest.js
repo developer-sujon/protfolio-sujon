@@ -10,7 +10,6 @@ import {
   SetPortfolio,
   SetTestimonial,
   SetClient,
-  SetComment,
 } from "../redux/slices/SummerySlice";
 
 class SummeryRequest {
@@ -71,11 +70,6 @@ class SummeryRequest {
   static async EmailSummery(pageNumber, perPage, searchKey) {
     const { data } = await RestClient.getRequest("/Summery/EmailSummery");
     store.dispatch(SetEmail(data[0]?.Total));
-    return true;
-  }
-  static async CommentSummery(pageNumber, perPage, searchKey) {
-    const { data } = await RestClient.getRequest("/Summery/CommentSummery");
-    store.dispatch(SetComment(data[0]?.Total));
     return true;
   }
 }

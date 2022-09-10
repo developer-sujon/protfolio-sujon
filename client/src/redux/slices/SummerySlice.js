@@ -32,9 +32,6 @@ const SummerySlice = createSlice({
     SetEmail(state, action) {
       state.Email = action.payload;
     },
-    SetComment(state, action) {
-      state.Comment = action.payload;
-    },
   },
 });
 
@@ -48,6 +45,5 @@ export const {
   SetExperience,
   SetSkill,
   SetEmail,
-  SetComment,
 } = SummerySlice.actions;
 export default SummerySlice.reducer;

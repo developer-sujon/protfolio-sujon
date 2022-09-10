@@ -8,26 +8,26 @@ class SessionHelper {
   static removeToken() {
     return sessionStorage.removeItem("accessToken");
   }
-  static SetUserDetails(User) {
-    sessionStorage.setItem("User", JSON.stringify(User));
+  static SetUserDetails(user) {
+    sessionStorage.setItem("user", JSON.stringify(user));
   }
   static getUserDetails() {
-    return JSON.parse(sessionStorage.getItem("User"));
+    return JSON.parse(sessionStorage.getItem("user"));
   }
   static RemoveUserDetails() {
-    return sessionStorage.removeItem("User");
+    return sessionStorage.removeItem("user");
   }
-  static setOtpEmail(email) {
-    return sessionStorage.setItem("otpEmail", email);
+  static setOtpEmail() {
+    return JSON.parse(sessionStorage.getItem("otp"));
   }
   static getOtpEmail() {
-    return sessionStorage.getItem("otpEmail");
+    return sessionStorage.removeItem("otp");
   }
-  static setOtpCode(opt) {
-    return sessionStorage.setItem("otp", opt);
+  static setOtpCode() {
+    return JSON.parse(sessionStorage.getItem("otp"));
   }
   static getOtpCode() {
-    return sessionStorage.getItem("otp");
+    return sessionStorage.removeItem("otp");
   }
 }
 

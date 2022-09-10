@@ -1,31 +1,30 @@
 //Internal Import
 import store from "../redux/store/store";
 import RestClient from "./RestClient";
-import { SetCommentList, SetTotalPage } from "../redux/slices/CommentSlice";
+import { SetCommentList } from "../redux/slices/CommentSlice";
+import ToastMessage from "../helper/ToastMessage";
 
 class CommentRequest {
-  static async CommentList(pageNumber, perPage, searchKey) {
+  static async CommentDropDown(id) {
     const { data } = await RestClient.getRequest(
-      `/Comment/CommentList/${pageNumber}/${perPage}/${searchKey}`,
+      `/Comment/CommentDropDown/${id}`,
     );
 
     if (data) {
-      store.dispatch(SetCommentList(data[0]?.Data));
-      store.dispatch(SetTotalPage(data[0]?.Total[0]?.count));
+      store.dispatch(SetCommentList(data));
       return true;
     }
   }
 
-  static async CommentUpdate(id, status) {
-    await RestClient.updateRequest(`/Comment/CommentUpdate/${id}`, {
-      Status: status,
-    });
-    return true;
-  }
-
-  static async CommentDelete(id) {
-    await RestClient.deleteRequest(`/Comment/CommentDelete/${id}`);
-    return true;
+  static async CommentCreate(postBody) {
+    const { data } = await RestClient.postRequest(
+      `/Comment/CommentCreate`,
+      postBody,
+    );
+    if (data) {
+      ToastMessage.successMessage(data.message);
+      return true;
+    }
   }
 }
 

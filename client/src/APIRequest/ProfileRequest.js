@@ -7,7 +7,10 @@ import SessionHelper from "../helper/SessionHelper";
 
 class ProfileRequest {
   static async UserDetails() {
-    const { data } = await RestClient.getRequest("/user/UserDetails");
+    const { data } = await RestClient.getRequest(
+      "/admin/SelectUser/devoloper.sujon@gmail.com",
+    );
+
     if (data) {
       store.dispatch(SetUserDetails(data?.[0]));
       return true;

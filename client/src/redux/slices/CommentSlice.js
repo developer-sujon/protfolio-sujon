@@ -8,9 +8,6 @@ const CommentSlice = createSlice({
     SetCommentList(state, action) {
       state.CommentList = action.payload;
     },
-    SetTotalPage(state, action) {
-      state.TotalComment = action.payload;
-    },
   },
 });
 

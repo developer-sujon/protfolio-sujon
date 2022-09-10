@@ -33,7 +33,15 @@ const xssClean = require("xss-clean");
 //Security middleware emplement
 app.use(cors());
 app.use(hpp());
-app.use(helmet());
+app.use(helmet({ crossOriginEmbedderPolicy: false, originAgentCluster: true }));
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      "img-src": ["'self'", "https: data: blob:"],
+    },
+  }),
+);
 app.use(expressMongoSanitize());
 app.use(xssClean());
 

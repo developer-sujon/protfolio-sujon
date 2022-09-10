@@ -10,7 +10,7 @@ const ListService = require("../../services/Common/ListService");
 const UpdateService = require("../../services/Common/UpdateService");
 const DeleteService = require("../../services/Common/DeleteService");
 const FindService = require("../../services/Common/FindService");
-const CreateService = require("../../services/common/CreateService");
+const CreateService = require("../../services/Common/CreateService");
 
 const {
   cloudinaryUpload,

@@ -19,7 +19,10 @@ EducationRoutes.get(
 );
 
 //Education List
-EducationRoutes.get("/EducationDropDown", EducationControllers.EducationDropDown);
+EducationRoutes.get(
+  "/EducationDropDown",
+  EducationControllers.EducationDropDown,
+);
 
 //Education Single
 EducationRoutes.get(

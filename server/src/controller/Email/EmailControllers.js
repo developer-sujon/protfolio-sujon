@@ -3,7 +3,7 @@ const ObjectId = require("mongoose").Types.ObjectId;
 const Filter = require("bad-words");
 
 //Internal Import
-const CreateService = require("../../services/common/CreateService");
+const CreateService = require("../../services/Common/CreateService");
 const EmailsModel = require("../../model/Emails/EmailsModel");
 const { CreateError } = require("../../helper/ErrorHandler");
 

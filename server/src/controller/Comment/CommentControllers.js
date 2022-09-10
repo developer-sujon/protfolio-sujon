@@ -7,9 +7,9 @@ const Filter = require("bad-words");
 const CommentsModel = require("../../model/Comments/CommentsModel");
 const { CreateError } = require("../../helper/ErrorHandler");
 
-const CreateService = require("../../services/common/CreateService");
-const ListService = require("../../services/common/ListService");
-const UpdateService = require("../../services/common/UpdateService");
+const CreateService = require("../../services/Common/CreateService");
+const ListService = require("../../services/Common/ListService");
+const UpdateService = require("../../services/Common/UpdateService");
 const DeleteService = require("../../services/Common/DeleteService");
 const FindService = require("../../services/Common/FindService");
 

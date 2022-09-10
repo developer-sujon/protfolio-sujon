@@ -1,6 +1,9 @@
 import React, { useRef } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+
 import BlogRequest from "../../APIRequest/BlogRequest";
 import FormValidation from "../../helper/FormValidation";
 import ToastMessage from "../../helper/ToastMessage";
@@ -79,12 +82,9 @@ const BlogCreate = () => {
 
                 <Form.Group controlId="Description">
                   <Form.Label>Blog Description</Form.Label>
-                  <Form.Control
+                  <ReactQuill
+                    theme="snow"
                     ref={(input) => (descriptionRef = input)}
-                    placeholder="Blog Description"
-                    className="form-control animated fadeInUp"
-                    as="textarea"
-                    rows={3}
                   />
                 </Form.Group>
 

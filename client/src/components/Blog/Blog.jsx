@@ -48,7 +48,7 @@ const Blog = () => {
                   </div>
                   <div className="news-item__caption">
                     <h3 className="title title--h3">{HtmlParse(blog.Title)}</h3>
-                    <p>{HtmlParse(blog.Description)}</p>
+                    <p>{HtmlParse(blog.Description.slice(0, 90))}...</p>
                   </div>
                 </article>
               );

@@ -3,6 +3,8 @@ import { useRef } from "react";
 import { Container, Col, Row, Card, Form, Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 //Internal Lib Import
 import FormValidation from "../../helper/FormValidation";
@@ -94,13 +96,10 @@ const BlogUpdate = () => {
 
                 <Form.Group controlId="Description">
                   <Form.Label>Blog Description</Form.Label>
-                  <Form.Control
-                    defaultValue={Blog?.Description}
+                  <ReactQuill
+                    theme="snow"
+                    value={Blog?.Description}
                     ref={(input) => (descriptionRef = input)}
-                    placeholder="Blog Description"
-                    className="form-control animated fadeInUp"
-                    as="textarea"
-                    rows={3}
                   />
                 </Form.Group>
 

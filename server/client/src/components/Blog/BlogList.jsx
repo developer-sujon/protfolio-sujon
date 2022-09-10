@@ -9,6 +9,7 @@ import { AiOutlineEdit, AiFillDelete } from "react-icons/ai";
 import BlogRequest from "../../APIRequest/BlogRequest";
 import AleartMessage from "../../helper/AleartMessage";
 import { Link } from "react-router-dom";
+import HtmlParse from "../../helper/HtmlParse";
 
 const BlogList = () => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -128,12 +129,12 @@ const BlogList = () => {
 
                                 <td>
                                   <p className="text-xs font-weight-bold mb-0">
-                                    {item.Title}
+                                    {HtmlParse(item.Title)}
                                   </p>
                                 </td>
                                 <td>
                                   <p className="text-xs font-weight-bold mb-0">
-                                    {item.Description}
+                                    {HtmlParse(item.Description)}
                                   </p>
                                 </td>
 

@@ -30,7 +30,15 @@ html {
 a:hover {
   text-decoration: none !important;
 }
-
+pre {
+    word-wrap: break-word;
+    background: #383a59;
+    font-size: 15px;
+    margin: 20px 0;
+    padding: 20px;
+    color: rgb(255,121,198);
+    white-space: pre;
+}
 body {
   background: #f0f0f6;
   color: #5f6f81;

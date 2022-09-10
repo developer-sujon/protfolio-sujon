@@ -18,7 +18,7 @@ const Navigation = ({ title }) => {
 
   return (
     <>
-      <title>{title}</title>
+      <title>Sujon - {title}</title>
       <div className="circle-menu">
         <div className="hamburger" onClick={handlemenu}>
           <div className="line" />

@@ -1,6 +1,7 @@
 //External Import
 const ObjectId = require("mongoose").Types.ObjectId;
 const fs = require("fs");
+const Filter = require("bad-words");
 
 //External import
 const CommentsModel = require("../../model/Comments/CommentsModel");
@@ -22,7 +23,19 @@ const DropDownService = require("../../services/Common/DropDownService");
  */
 
 const CommentCreate = async (req, res, next) => {
+  let { Description } = req.body;
+
+  const filter = new Filter();
+  const isProfane = filter.isProfane(Description);
+
   try {
+    if (isProfane) {
+      throw CreateError(
+        "Create Comment Failure Because it Contains Profane Words",
+        400,
+      );
+    }
+
     const data = new CommentsModel(req.body);
     await data.save();
     res.status(201).json({ message: "Comment Create Successfull and Pending" });

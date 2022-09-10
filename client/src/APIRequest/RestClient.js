@@ -18,12 +18,10 @@ function axiosHeaders() {
 }
 
 const ResponseReturn = (response) => {
-  store.dispatch(RemoveLoading());
   return response;
 };
 
 const ErrorReturn = (error) => {
-  store.dispatch(RemoveLoading());
   if (error.response.status === 500) {
     ToastMessage.errorMessage("Sorry, Something went wrong");
   } else if (error.response.status === 401) {
@@ -43,9 +41,11 @@ class RestClient {
     return await axios
       .get(url, axiosHeaders())
       .then((response) => {
+        store.dispatch(RemoveLoading());
         return ResponseReturn(response);
       })
       .catch((error) => {
+        store.dispatch(RemoveLoading());
         return ErrorReturn(error);
       });
   }
@@ -54,6 +54,7 @@ class RestClient {
     return await axios
       .post(url, postBody, axiosHeaders())
       .then((response) => {
+        store.dispatch(RemoveLoading());
         return ResponseReturn(response);
       })
       .catch((error) => {
@@ -66,9 +67,11 @@ class RestClient {
     return await axios
       .patch(url, postBody, axiosHeaders())
       .then((response) => {
+        store.dispatch(RemoveLoading());
         return ResponseReturn(response);
       })
       .catch((error) => {
+        store.dispatch(RemoveLoading());
         return ErrorReturn(error);
       });
   }
@@ -77,9 +80,11 @@ class RestClient {
     return await axios
       .put(url, postBody, axiosHeaders())
       .then((response) => {
+        store.dispatch(RemoveLoading());
         return ResponseReturn(response);
       })
       .catch((error) => {
+        store.dispatch(RemoveLoading());
         return ErrorReturn(error);
       });
   }
@@ -88,9 +93,11 @@ class RestClient {
     return await axios
       .delete(url, axiosHeaders())
       .then((response) => {
+        store.dispatch(RemoveLoading());
         return ResponseReturn(response);
       })
       .catch((error) => {
+        store.dispatch(RemoveLoading());
         return ErrorReturn(error);
       });
   }

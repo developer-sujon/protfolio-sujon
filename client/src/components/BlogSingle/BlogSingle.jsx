@@ -26,7 +26,9 @@ const BlogSingle = () => {
       <div className="content">
         <div className="pb-3">
           <header className="header-post">
-            <h1 className="title title--h1">{HtmlParse(Blog?.Title)}</h1>
+            <h1 className="title title--h1">
+              {Blog?.Title ? HtmlParse(Blog?.Title) : "Loading...."}
+            </h1>
 
             <div className="header-post__image-wrap">
               <img
@@ -36,7 +38,9 @@ const BlogSingle = () => {
               />
             </div>
           </header>
-          <div className="caption-post">{HtmlParse(Blog?.Description)}</div>
+          <div className="caption-post">
+            {Blog?.Description ? HtmlParse(Blog?.Description) : "Loading...."}
+          </div>
 
           <BlogShare />
         </div>

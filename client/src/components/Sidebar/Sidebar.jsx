@@ -28,9 +28,13 @@ const Sidebar = () => {
         </div>
         <div className="text-center">
           <h3 className="title sidebar__user-name">
-            <span className="weight--500"> {HtmlParse(user?.Name)} </span>
+            <span className="weight--500">
+              {user?.Name ? HtmlParse(user?.Name) : "Loading...."}
+            </span>
           </h3>
-          <div className="badge badge--gray">{HtmlParse(user?.Post)}</div>
+          <div className="badge badge--gray">
+            {user?.Post ? HtmlParse(user?.Post) : "Loading...."}
+          </div>
 
           <div className="social">
             <a className="social__link" href={user?.Github} target="_blank">
@@ -56,7 +60,7 @@ const Sidebar = () => {
             data-original-title="Birthday"
           >
             <i className="font-icon icon-calendar2" />
-            {user?.Birthday}
+            {user?.Birthday ? user?.Birthday : "Loading...."}
           </li>
           <li
             className="contact-block__item"
@@ -66,7 +70,7 @@ const Sidebar = () => {
             data-original-title="Address"
           >
             <i className="font-icon icon-map-pin" />
-            {HtmlParse(user?.Address)}
+            {user?.Address ? HtmlParse(user?.Address) : "Loading...."}
           </li>
           <li
             className="contact-block__item"
@@ -77,7 +81,7 @@ const Sidebar = () => {
           >
             <a href="mailto:devoloper.sujon@gmail">
               <i className="font-icon icon-mail" />
-              {user?.Email}
+              {user?.Email ? HtmlParse(user?.Email) : "Loading...."}
             </a>
           </li>
           <li
@@ -88,7 +92,9 @@ const Sidebar = () => {
             data-original-title="Phone"
           >
             <i className="font-icon icon-smartphone" />
-            <a href={`tel:${user?.Phone}`}>{user?.Phone}</a>
+            <a href={`tel:${user?.Phone}`}>
+              {user?.Phone ? HtmlParse(user?.Phone) : "Loading...."}
+            </a>
           </li>
         </ul>
         <a className="btn" href={user?.Cv} target="_blank">

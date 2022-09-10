@@ -9,7 +9,7 @@ import logo from "../../assets/images/logo.svg";
 const AppNavigation = ({ title }) => {
   return (
     <>
-      <title>{title}</title>
+      <title>Sujon - {title}</title>
       <Navbar className="fixed-top px-0 shadow-sm ">
         <Container fluid={true}>
           <Navbar.Brand>

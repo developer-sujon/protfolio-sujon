@@ -9,7 +9,9 @@ const AboutMe = () => {
 
   return (
     <div className="section mt-0">
-      <div className="pt-2 pt-sm-3">{HtmlParse(user?.AboutMe)}</div>
+      <div className="pt-2 pt-sm-3">
+        {user?.AboutMe ? HtmlParse(user?.AboutMe) : "Loading...."}
+      </div>
     </div>
   );
 };

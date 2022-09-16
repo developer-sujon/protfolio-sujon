@@ -6,14 +6,12 @@ const CreateToken = require("../../utility/CreateToken");
 const { CreateError } = require("../../helper/ErrorHandler");
 
 const LoginService = async (Request, DataModel) => {
-  const { Email, Phone, Password } = Request.body;
+  const { Email, Password } = Request.body;
 
   if (!Email || !Password) {
     throw CreateError("Invalid Data", 400);
   }
-  const User = await DataModel.aggregate([
-    { $match: { $or: [{ Email }, { Phone }] } },
-  ]);
+  const User = await DataModel.aggregate([{ $match: { Email: Email } }]);
 
   if (!User.length > 0) {
     throw CreateError("User Not found", 404);

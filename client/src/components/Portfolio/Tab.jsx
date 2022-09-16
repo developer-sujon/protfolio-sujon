@@ -39,6 +39,10 @@ class ProtfolioTab extends Component {
     const tabs = [];
     const tabPanels = [];
 
+    function onlyUnique(value, index, self) {
+      return self.indexOf(value.Category) === index;
+    }
+
     this.props.characters &&
       this.props.characters.forEach(
         ({
@@ -66,7 +70,11 @@ class ProtfolioTab extends Component {
           if (!this.state[Category]) return;
 
           tabs.push(
-            <a href={Url} target="_blank" className="col-xl-6 col-md-3 col-sm-4 py-3">
+            <a
+              href={Url}
+              target="_blank"
+              className="col-xl-6 col-md-3 col-sm-4 py-3"
+            >
               <figure className="gallery-grid__item w-100 category-concept">
                 <div className="gallery-grid__image-wrap">
                   <img

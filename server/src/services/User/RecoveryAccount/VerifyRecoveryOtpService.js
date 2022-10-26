@@ -24,18 +24,6 @@ const VerifyRecoveryOtpService = async (Request, OtpModel) => {
     throw CreateError("Otp Code Allready Use", 400);
   }
 
-  const otpCodeExpire = await OtpModel.aggregate([
-    {
-      $match: {
-        OtpCodeExpire: { $gt: new Date().getTime() },
-      },
-    },
-  ]);
-
-  if (!otpCodeExpire.length > 0) {
-    throw CreateError("Expire Otp Code", 400);
-  }
-
   await OtpModel.updateOne(
     { OtpCode: OtpCode },
     {

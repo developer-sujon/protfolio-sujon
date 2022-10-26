@@ -64,6 +64,7 @@ const App = () => {
             element={accessToken ? <DashboardPage /> : <SendOptPage />}
           />
           <Route
+            path="/verify-otp"
             element={accessToken ? <DashboardPage /> : <VerifyOptPage />}
           />
           <Route

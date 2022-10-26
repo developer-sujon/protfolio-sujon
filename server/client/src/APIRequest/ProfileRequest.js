@@ -56,6 +56,7 @@ class ProfileRequest {
     if (data) {
       SessionHelper.setOtpCode(otp);
       ToastMessage.successMessage(data.message);
+      return true
     }
   }
 

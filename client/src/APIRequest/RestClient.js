@@ -8,7 +8,7 @@ import { RemoveUserDetails } from "../redux/slices/ProfileSlice";
 import store from "../redux/store/store";
 
 //Axios default setting
-axios.defaults.baseURL = "https://admin.sujon.one/api/v1";
+axios.defaults.baseURL = "https://manage.devsujon.com/api/v1";
 axios.defaults.headers.post["Content-Type"] =
   "application/x-www-form-urlencoded";
 
